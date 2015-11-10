@@ -9,7 +9,7 @@ Zakaz wykorzystywania w celach komercyjnych oraz rozpowszechniania bez zgody aut
 
 --------------------------------------------
 
-Automatic school bell project II LO in Kielce
+Automatic school bell system for II Liceum Ogólnokształcące im. Jana Śniadeckiego in Kielce
 
 More information: http://szymonkatra.github.io/en/project/dzwonekiilokielce/
 
