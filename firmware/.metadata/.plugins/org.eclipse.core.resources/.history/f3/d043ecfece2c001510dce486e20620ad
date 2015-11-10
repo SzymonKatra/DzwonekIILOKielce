@@ -1,0 +1,124 @@
+#include "clock.h"
+#include <avr/eeprom.h>
+
+static dateTime_t s_currentDateTime;
+static uint8_t s_dateTimeUpdateCounter;
+static volatile uint8_t s_dcf77DataReceived;
+static volatile uint64_t s_dcf77Data;
+static volatile uint8_t s_dcf77StartDelay;
+
+static volatile uint8_t s_dcf77Failed;
+static uint16_t s_success;
+static uint16_t s_rcvFail;
+static uint16_t s_decodeFail;
+
+static void clockDcf77ReceivedCallback(uint64_t data);
+static void clockDcf77FailedCallback();
+
+#define ALL_OK 1
+#define DECODE_FAILED 2
+#define RECEIVE_FAILED 3
+#define NEW_HOUR 4
+
+void clockInit()
+{
+	s_dcf77DataReceived = 0;
+	s_dcf77Data = 0;
+	s_dcf77StartDelay = 0;
+
+	s_dcf77Failed = 0;
+	s_success = 0;
+	s_rcvFail = 0;
+	s_decodeFail = 0;
+
+	s_dateTimeUpdateCounter = CLOCK_UPDATE_TICKS;
+	ds3231ReadDateTime(&s_currentDateTime);
+
+	dcf77RegisterReceivedCallback(&clockDcf77ReceivedCallback);
+	dcf77RegisterFailedCallback(&clockDcf77FailedCallback);
+	dcf77Start();
+}
+
+void clockTick()
+{
+	s_dateTimeUpdateCounter++;
+
+	if (s_dcf77StartDelay > 0)
+	{
+		s_dcf77StartDelay--;
+
+		if (s_dcf77StartDelay == 0) dcf77Start();
+	}
+}
+void clockProcess()
+{
+	if (s_dcf77DataReceived)
+	{
+		s_dcf77DataReceived = 0;
+
+		uint64_t dataTmp;
+		ATOMIC_BLOCK(ATOMIC_FORCEON)
+		{
+			dataTmp = s_dcf77Data;
+		}
+
+		dcf77Data_t result;
+
+		if (dcf77Decode(dataTmp, &result))
+		{
+			clockSetDateTime(&result.currentDateTime);
+
+			s_success++;
+			eeprom_write_word((uint16_t*)1010, s_success);
+		}
+		else
+		{
+			s_decodeFail++;
+			eeprom_write_word((uint16_t*)1012, s_decodeFail);
+		}
+	}
+
+	if (s_dcf77Failed)
+	{
+		s_dcf77Failed = 0;
+
+		s_rcvFail++;
+		eeprom_write_word((uint16_t*)1014, s_rcvFail);
+
+		if (dcf77GetFailCount() > 10)
+		{
+			dcf77Stop();
+			s_dcf77StartDelay = TICKS_PER_SECOND;
+		}
+	}
+
+	if (s_dateTimeUpdateCounter >= CLOCK_UPDATE_TICKS)
+	{
+		s_dateTimeUpdateCounter = 0;
+		ATOMIC_BLOCK(ATOMIC_FORCEON)
+		{
+			ds3231ReadDateTime(&s_currentDateTime);
+		}
+	}
+}
+
+const dateTime_t* clockGetCurrentDateTimePointer()
+{
+	return &s_currentDateTime;
+}
+
+void clockSetDateTime(const dateTime_t* dateTime)
+{
+	s_currentDateTime = *dateTime;
+	ds3231WriteDateTime(dateTime);
+}
+
+static void clockDcf77ReceivedCallback(uint64_t data)
+{
+	s_dcf77DataReceived = 1;
+	s_dcf77Data = data;
+}
+static void clockDcf77FailedCallback()
+{
+	s_dcf77Failed = 1;
+}

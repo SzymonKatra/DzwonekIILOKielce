@@ -1,0 +1,187 @@
+﻿<Window x:Class="KonfiguracjaDzwonekIILOKielce.MainWindow"
+        xmlns:my="clr-namespace:KonfiguracjaDzwonekIILOKielce"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:t="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:c="clr-namespace:MVVMUtils;assembly=MVVMUtilsExt"
+        Title="{DynamicResource StringAppName}" Height="700" Width="900"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <s:Int32 x:Key="IntProfile0">0</s:Int32>
+        <s:Int32 x:Key="IntProfile1">1</s:Int32>
+        <s:Int32 x:Key="IntProfile2">2</s:Int32>
+        <s:Int32 x:Key="IntProfile3">3</s:Int32>
+        <s:Int32 x:Key="IntProfileNone">0xFF</s:Int32>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Style="{my:MultiStyle StyleStackPanelItem StyleTextBlockTitle}" FontWeight="Bold" Text="{Binding ConfigurationPath}"/>
+            <Button Style="{StaticResource StyleStackPanelItem}" Content="{StaticResource StringSaveConfiguration}" Command="{Binding WriteCommand}"/>
+            <Button Style="{StaticResource StyleStackPanelItem}" Content="{StaticResource StringRestoreDefaultConfiguration}" Command="{Binding RestoreDefaultCommand}"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>            
+            
+            <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource StyleTextBlockTitle}" Text="{StaticResource StringBellLengthForLesson}"/>
+            <t:IntegerUpDown Grid.Row="0" Grid.Column="1" Style="{StaticResource StyleFormItem}" Minimum="1" Maximum="59" Value="{Binding BellLengthForLesson, Mode=TwoWay}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource StyleTextBlockTitle}" Text="{StaticResource StringBellLengthForBreak}"/>
+            <t:IntegerUpDown Grid.Row="1" Grid.Column="1" Style="{StaticResource StyleFormItem}" Minimum="1" Maximum="59" Value="{Binding BellLengthForBreak, Mode=TwoWay}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource StyleTextBlockTitle}" Text="{StaticResource StringSchoolYear}"/>
+            <Grid Grid.Row="2" Grid.Column="1" Style="{StaticResource StyleFormItem}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+
+                <t:IntegerUpDown Grid.Column="0" Minimum="1900" Maximum="2098" Value="{Binding SchoolYear, Mode=TwoWay}"/>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="/"/>
+                <TextBlock Grid.Column="2" Style="{StaticResource StyleTextBlockTitle}" Text="{Binding SchoolYearSecond}"/>
+            </Grid>
+            
+            <TextBlock Grid.Row="0" Grid.Column="3" Text="{StaticResource StringSynchronizationHour}" Style="{StaticResource StyleTextBlockTitle}"/>
+            <t:DateTimeUpDown Grid.Row="0" Grid.Column="4" Style="{StaticResource StyleFormItem}" Format="Custom" FormatString="HH:mm" Value="{Binding SynchronizationTime, Mode=TwoWay}"/>
+            <TextBlock Grid.Row="1" Grid.Column="3" Text="{StaticResource StringSynchronizationLength}" Style="{StaticResource StyleTextBlockTitle}"/>
+            <t:IntegerUpDown Grid.Row="1" Grid.Column="4" Minimum="1" Maximum="1440" Style="{StaticResource StyleFormItem}" Value="{Binding SynchronizationLength, Mode=TwoWay}"/>
+            <CheckBox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" Style="{StaticResource StyleFormItem}" Content="{StaticResource StringAutomaticTimeTransition}" IsChecked="{Binding AutoTimeTransition, Mode=TwoWay}"/>
+        </Grid>
+
+        <TabControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <TabItem Header="{StaticResource StringProfiles}">
+                <TabControl ItemsSource="{Binding Profiles}" DisplayMemberPath="Name" TabStripPlacement="Left" Margin="0,5,0,0">
+                    <TabControl.ContentTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                    <Button Style="{StaticResource StyleStackPanelItem}" Content="{StaticResource StringAddBell}" Command="{Binding AddBellCommand}"/>
+                                    <Button Style="{StaticResource StyleStackPanelItem}" Content="{StaticResource StringClearBells}" Command="{Binding ClearBellsCommand}"/>
+                                </StackPanel>
+
+                                <DataGrid Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" CanUserReorderColumns="False" SelectionMode="Single" ItemsSource="{Binding Bells}">
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn Header="{StaticResource StringNumber}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Number}" HorizontalAlignment="Center"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="{StaticResource StringBellHour}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <t:DateTimeUpDown Style="{StaticResource StyleValidation}" Value="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Minimum="{Binding Min}" Maximum="{Binding Max}" Format="Custom" FormatString="HH:mm"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="{StaticResource StringBellType}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <my:BellTypeChooser Value="{Binding Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </DataTemplate>
+                    </TabControl.ContentTemplate>
+                </TabControl>
+            </TabItem>
+            <TabItem Header="{StaticResource StringCalendar}">
+                <TabControl x:Name="MonthTabControl" ItemsSource="{Binding Months}" DisplayMemberPath="Name" TabStripPlacement="Left" Margin="0,5,0,0">
+                    <TabControl.ContentTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource StyleStackPanelItem}" Content="{StaticResource StringProfile0}" Command="{Binding SetProfilesCommand}" CommandParameter="{StaticResource IntProfile0}"/>
+                                    <Button Style="{StaticResource StyleStackPanelItem}" Content="{StaticResource StringProfile1}" Command="{Binding SetProfilesCommand}" CommandParameter="{StaticResource IntProfile1}"/>
+                                    <Button Style="{StaticResource StyleStackPanelItem}" Content="{StaticResource StringProfile2}" Command="{Binding SetProfilesCommand}" CommandParameter="{StaticResource IntProfile2}"/>
+                                    <Button Style="{StaticResource StyleStackPanelItem}" Content="{StaticResource StringProfile3}" Command="{Binding SetProfilesCommand}" CommandParameter="{StaticResource IntProfile3}"/>
+                                    <Button Style="{StaticResource StyleStackPanelItem}" Content="{StaticResource StringProfileNone}" Command="{Binding SetProfilesCommand}" CommandParameter="{StaticResource IntProfileNone}"/>
+                                </StackPanel>
+
+                                <ItemsControl Grid.Row="1">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <UniformGrid Columns="7" Rows="1"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+
+                                    <my:DayOfWeekTitle DayOfWeek="Monday"/>
+                                    <my:DayOfWeekTitle DayOfWeek="Tuesday"/>
+                                    <my:DayOfWeekTitle DayOfWeek="Wednesday"/>
+                                    <my:DayOfWeekTitle DayOfWeek="Thursday"/>
+                                    <my:DayOfWeekTitle DayOfWeek="Friday"/>
+                                    <my:DayOfWeekTitle DayOfWeek="Saturday"/>
+                                    <my:DayOfWeekTitle DayOfWeek="Sunday"/>
+                                </ItemsControl>
+
+                                <ListView Grid.Row="2" ItemsSource="{Binding Days}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="SelectionChanged">
+                                            <c:EventToCommand Command="{Binding SelectionChangedCommand}" PassEventArgs="True"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsDummy}" Value="True">
+                                                    <Setter Property="IsEnabled" Value="False"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <UniformGrid Columns="7" Rows="6"/>
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <my:ProfileItem MinWidth="90" MaxWidth="90" MinHeight="60" MaxHeight="60" DayVM="{Binding}"/>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </DataTemplate>
+                    </TabControl.ContentTemplate>
+                </TabControl>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <s:String x:Key="StringAppName">Dzwonek II LO Kielce Konfiguracja</s:String>
+    <s:String x:Key="StringInnerError">Wewnętrzny błąd</s:String>
+    <s:String x:Key="StringIllegalCharacters">Wprowadzono nieprawidłowe znaki</s:String>
+    <s:String x:Key="StringFormatMustBeInRange">Wprowadź liczbę z zakresu od {0} do {1}</s:String>
+    <s:String x:Key="StringProfile0">Normalne (N)</s:String>
+    <s:String x:Key="StringProfile1">Skrócone (S)</s:String>
+    <s:String x:Key="StringProfile2">Inne 1</s:String>
+    <s:String x:Key="StringProfile3">Inne 2</s:String>
+    <s:String x:Key="StringProfileNone">Brak</s:String>
+    <s:String x:Key="StringFormatSchoolYear">{0} / {1}</s:String>
+    <s:String x:Key="StringForLesson">Na lekcję</s:String>
+    <s:String x:Key="StringForBreak">Na przerwę</s:String>
+    <s:String x:Key="StringBellLengthForLesson">Długość dzwonka na lekcję (sek.)</s:String>
+    <s:String x:Key="StringBellLengthForBreak">Długość dzwonka na przerwę (sek.)</s:String>
+    <s:String x:Key="StringSchoolYear">Rok szkolny</s:String>
+    <s:String x:Key="StringSynchronizationHour">Godzina synchronizacji</s:String>
+    <s:String x:Key="StringSynchronizationLength">Długość prób synchronizacji (min.)</s:String>
+    <s:String x:Key="StringAutomaticTimeTransition">Automatyczna zmiana czasu (letni/zimowy)</s:String>
+    <s:String x:Key="StringProfiles">Profile (dzwonki)</s:String>
+    <s:String x:Key="StringCalendar">Kalendarz</s:String>
+    <s:String x:Key="StringAddBell">Dodaj dzwonek</s:String>
+    <s:String x:Key="StringClearBells">Wyczyść dzwonki</s:String>
+    <s:String x:Key="StringNumber">Numer</s:String>
+    <s:String x:Key="StringBellHour">Godzina dzwonienia</s:String>
+    <s:String x:Key="StringBellType">Rodzaj dzwonka</s:String>
+    <s:String x:Key="StringFormatErrorWhileReading">Wystąpił błąd podczas odczytu konfiguracji z {0}</s:String>
+    <s:String x:Key="StringFormatErrorWhileWriting">Wystąpił błąd podczas zapisu konfiguracji do {0}</s:String>
+    <s:String x:Key="StringFileIsInvalid">Plik ma nieprawidłową wartość kontrolną, ale program spróbuje go odczytać</s:String>
+    <s:String x:Key="StringSaveConfiguration">Zapisz konfigurację</s:String>
+    <s:String x:Key="StringRestoreDefaultConfiguration">Przywróć domyślne</s:String>
+    <s:String x:Key="StringDoYouReallyWantDefault">Czy na pewno chcesz przywrócić domyślne ustawienia</s:String>
+    <s:String x:Key="StringSaved">Zapisano pomyślnie</s:String>
+</ResourceDictionary>

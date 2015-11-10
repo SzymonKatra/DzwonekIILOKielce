@@ -1,0 +1,17 @@
+#ifndef MENU_BELLLENGTH_H_
+#define MENU_BELLLENGTH_H_
+
+#include <stdint.h>
+#include "../common.h"
+
+#define MENU_BELLLENGTH_VALUE_MIN 1
+#define MENU_BELLLENGTH_VALUE_MAX 59
+#define MENU_BELLLENGTH_VALUE_HIGHLIGHT_TICKS (TICKS_PER_SECOND / 2)
+
+#define MENU_BELLLENGTH_VALUE_HIGHLIGHT_X 12
+#define MENU_BELLLENGTH_VALUE_FORMAT "%2d"
+#define MENU_BELLLENGTH_SECONDS_CHAR_STR "s"
+
+void menuBellLength(uint8_t flags);
+
+#endif /* MENU_BELLLENGTH_H_ */

@@ -1,0 +1,79 @@
+#ifndef HD44780_H_
+#define HD44780_H_
+
+#include <stdint.h>
+#include <avr/io.h>
+
+#define HD44780_RS_DDR DDRB
+#define HD44780_RS_PORT PORTB
+#define HD44780_RS_BIT PB2
+
+#define HD44780_E_DDR DDRB
+#define HD44780_E_PORT PORTB
+#define HD44780_E_BIT PB1
+
+#define HD44780_D4_DDR DDRB
+#define HD44780_D4_PORT PORTB
+#define HD44780_D4_BIT PD0
+
+#define HD44780_D5_DDR DDRD
+#define HD44780_D5_PORT PORTD
+#define HD44780_D5_BIT PD7
+
+#define HD44780_D6_DDR DDRD
+#define HD44780_D6_PORT PORTD
+#define HD44780_D6_BIT PD6
+
+#define HD44780_D7_DDR DDRD
+#define HD44780_D7_PORT PORTD
+#define HD44780_D7_BIT PD5
+
+#define HD44780_CLEAR (1 << 0)
+
+#define HD44780_HOME (1 << 1)
+
+#define HD44780_ENTRY_MODE (1 << 2)
+#define HD44780_ENTRY_MODE_INCREMENT (1 << 1)
+#define HD44780_ENTRY_MODE_DECREMENT 0
+#define HD44780_ENTRY_MODE_SHIFT_CURSOR 0
+#define HD44780_ENTRY_MODE_SHIFT_DISPLAY (1 << 0)
+
+#define HD44780_DISPLAY_ONOFF (1 << 3)
+#define HD44780_DISPLAY_ONOFF_ON (1 << 2)
+#define HD44780_DISPLAY_ONOFF_OFF 0
+#define HD44780_DISPLAY_ONOFF_CURSOR_ON (1 << 1)
+#define HD44780_DISPLAY_ONOFF_CURSOR_OFF 0
+#define HD44780_DISPLAY_ONOFF_CURSOR_BLINK (1 << 0)
+#define HD44780_DISPLAY_ONOFF_CURSOR_NOBLINK 0
+
+#define HD44780_DISPLAY_SHIFT (1 << 4)
+#define HD44780_DISPLAY_SHIFT_DISPLAY (1 << 3)
+#define HD44780_DISPLAY_SHIFT_CURSOR 0
+#define HD44780_DISPLAY_SHIFT_RIGHT (1 << 2)
+#define HD44780_DISPLAY_SHIFT_LEFT 0
+
+#define HD44780_FUNCTION_SET (1 << 5)
+#define HD44780_FUNCTION_SET_8_BIT (1 << 4)
+#define HD44780_FUNCTION_SET_4_BIT 0
+#define HD44780_FUNCTION_SET_1_LINE 0
+#define HD44780_FUNCTION_SET_2_LINE (1 << 3)
+#define HD44780_FUNCTION_SET_FONT5x7	0
+#define HD44780_FUNCTION_SET_FONT5x10 (1 << 2)
+
+#define HD44780_SET_CGRAM (1 << 6)
+
+#define HD44780_SET_DDRAM (1 << 7)
+
+void hd44780Init(uint8_t powerApplied);
+
+void hd44780Home();
+void hd44780Clear();
+void hd44780GoTo(uint8_t x, uint8_t y);
+void hd44780Text(const char* text);
+
+void hd44780Command(uint8_t command);
+void hd44780Data(uint8_t data);
+
+void hd44780DefineChar(uint8_t id, const uint8_t* data);
+
+#endif /* HD44780_H_ */
