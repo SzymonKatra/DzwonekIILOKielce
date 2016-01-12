@@ -1,99 +1,9 @@
-13:46:56 **** Incremental Build of configuration Release for project DzwonekIILOKielce ****
+20:02:45 **** Incremental Build of configuration Release for project DzwonekIILOKielce ****
 make all 
-Building file: ../menu/menu.c
+Building file: ../strings.c
 Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menu.d" -MT"menu/menu.d" -c -o "menu/menu.o" "../menu/menu.c"
-Finished building: ../menu/menu.c
- 
-Building file: ../menu/menuAutoTimeTransition.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuAutoTimeTransition.d" -MT"menu/menuAutoTimeTransition.d" -c -o "menu/menuAutoTimeTransition.o" "../menu/menuAutoTimeTransition.c"
-Finished building: ../menu/menuAutoTimeTransition.c
- 
-Building file: ../menu/menuBellLength.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuBellLength.d" -MT"menu/menuBellLength.d" -c -o "menu/menuBellLength.o" "../menu/menuBellLength.c"
-Finished building: ../menu/menuBellLength.c
- 
-Building file: ../menu/menuChangeProfile.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuChangeProfile.d" -MT"menu/menuChangeProfile.d" -c -o "menu/menuChangeProfile.o" "../menu/menuChangeProfile.c"
-Finished building: ../menu/menuChangeProfile.c
- 
-Building file: ../menu/menuChooseProfile.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuChooseProfile.d" -MT"menu/menuChooseProfile.d" -c -o "menu/menuChooseProfile.o" "../menu/menuChooseProfile.c"
-Finished building: ../menu/menuChooseProfile.c
- 
-Building file: ../menu/menuDcf77LastSynchronization.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuDcf77LastSynchronization.d" -MT"menu/menuDcf77LastSynchronization.d" -c -o "menu/menuDcf77LastSynchronization.o" "../menu/menuDcf77LastSynchronization.c"
-Finished building: ../menu/menuDcf77LastSynchronization.c
- 
-Building file: ../menu/menuDcf77Synchronization.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuDcf77Synchronization.d" -MT"menu/menuDcf77Synchronization.d" -c -o "menu/menuDcf77Synchronization.o" "../menu/menuDcf77Synchronization.c"
-Finished building: ../menu/menuDcf77Synchronization.c
- 
-Building file: ../menu/menuEditMonth.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuEditMonth.d" -MT"menu/menuEditMonth.d" -c -o "menu/menuEditMonth.o" "../menu/menuEditMonth.c"
-Finished building: ../menu/menuEditMonth.c
- 
-Building file: ../menu/menuEditProfile.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuEditProfile.d" -MT"menu/menuEditProfile.d" -c -o "menu/menuEditProfile.o" "../menu/menuEditProfile.c"
-Finished building: ../menu/menuEditProfile.c
- 
-Building file: ../menu/menuMain.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuMain.d" -MT"menu/menuMain.d" -c -o "menu/menuMain.o" "../menu/menuMain.c"
-Finished building: ../menu/menuMain.c
- 
-Building file: ../menu/menuManageSettings.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuManageSettings.d" -MT"menu/menuManageSettings.d" -c -o "menu/menuManageSettings.o" "../menu/menuManageSettings.c"
-Finished building: ../menu/menuManageSettings.c
- 
-Building file: ../menu/menuMonths.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuMonths.d" -MT"menu/menuMonths.d" -c -o "menu/menuMonths.o" "../menu/menuMonths.c"
-Finished building: ../menu/menuMonths.c
- 
-Building file: ../menu/menuProfiles.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuProfiles.d" -MT"menu/menuProfiles.d" -c -o "menu/menuProfiles.o" "../menu/menuProfiles.c"
-Finished building: ../menu/menuProfiles.c
- 
-Building file: ../menu/menuSdCard.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuSdCard.d" -MT"menu/menuSdCard.d" -c -o "menu/menuSdCard.o" "../menu/menuSdCard.c"
-Finished building: ../menu/menuSdCard.c
- 
-Building file: ../menu/menuSetDate.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuSetDate.d" -MT"menu/menuSetDate.d" -c -o "menu/menuSetDate.o" "../menu/menuSetDate.c"
-Finished building: ../menu/menuSetDate.c
- 
-Building file: ../menu/menuSetTime.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuSetTime.d" -MT"menu/menuSetTime.d" -c -o "menu/menuSetTime.o" "../menu/menuSetTime.c"
-Finished building: ../menu/menuSetTime.c
- 
-Building file: ../menu/menuYesNo.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuYesNo.d" -MT"menu/menuYesNo.d" -c -o "menu/menuYesNo.o" "../menu/menuYesNo.c"
-Finished building: ../menu/menuYesNo.c
- 
-Building file: ../interface.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"interface.d" -MT"interface.d" -c -o "interface.o" "../interface.c"
-Finished building: ../interface.c
- 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
-Finished building: ../main.c
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"strings.d" -MT"strings.d" -c -o "strings.o" "../strings.c"
+Finished building: ../strings.c
  
 Building target: DzwonekIILOKielce.elf
 Invoking: AVR C Linker
@@ -118,7 +28,7 @@ AVR Memory Usage
 ----------------
 Device: atmega328p
 
-Program:   29270 bytes (89.3% Full)
+Program:   29268 bytes (89.3% Full)
 (.text + .data + .bootloader)
 
 Data:       1539 bytes (75.1% Full)

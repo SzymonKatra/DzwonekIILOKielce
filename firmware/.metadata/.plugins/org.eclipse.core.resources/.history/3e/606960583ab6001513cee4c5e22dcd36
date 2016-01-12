@@ -1,0 +1,107 @@
+#include "strings.h"
+
+const char stringsInitialization[] PROGMEM = "Inicjalizacja...";
+const char stringsSettingFactorySettingsTop[] PROGMEM = "Przywracanie";
+const char stringsSettingFactorySettingsBottom[] PROGMEM = "ust. fabrycznych";
+
+const char stringsSplashText[] PROGMEM = "ZSE Kielce";
+
+const char stringsYes[] PROGMEM = "Tak";
+const char stringsNo[] PROGMEM = "Nie";
+const char stringsReturn[] PROGMEM = "Powrót";
+const char stringsSave[] PROGMEM = "Zapisz";
+const char stringsCancel[] PROGMEM = "Anuluj";
+const char stringsOk[] PROGMEM = "Ok";
+const char stringsWait[] PROGMEM = "Czekaj";
+const char stringsEnable[] PROGMEM = "W³¹cz";
+const char stringsDisable[] PROGMEM = "Wy³¹cz";
+
+const char stringsJanuary[] PROGMEM = "Styczeñ";
+const char stringsFebuary[] PROGMEM = "Luty";
+const char stringsMarch[] PROGMEM = "Marzec";
+const char stringsApril[] PROGMEM = "Kwiecieñ";
+const char stringsMay[] PROGMEM = "Maj";
+const char stringsJune[] PROGMEM = "Czerwiec";
+const char stringsJuly[] PROGMEM = "Lipiec";
+const char stringsAugust[] PROGMEM = "Sierpieñ";
+const char stringsSeptember[] PROGMEM = "Wrzesieñ";
+const char stringsOctober[] PROGMEM = "PaŸdziernik";
+const char stringsNovember[] PROGMEM = "Listopad";
+const char stringsDecember[] PROGMEM = "Grudzieñ";
+
+const char stringsSetTime[] PROGMEM = "Ustaw godzinê";
+const char stringsSetDate[] PROGMEM = "Ustaw datê";
+const char stringsAutoTimeTransition[] PROGMEM = "Automatyczna zmiana czasu";
+const char stringsDcf77Synchronization[] PROGMEM = "Synchronizacja z wzorcem czasu DCF77";
+const char stringsBellLength[] PROGMEM = "D³ugoœæ dzwonka";
+const char stringsBellEnableHours[] PROGMEM = "Profile (godziny dzwonków)";
+const char stringsChangeProfile[] PROGMEM = "Zmieñ profil";
+const char stringsCalendar[] PROGMEM = "Kalendarz";
+const char stringsManageSettings[] PROGMEM = "Zarz¹dzaj ustawieniami";
+
+const char stringsHourFormat[] PROGMEM = "gg";
+const char stringsMinuteFormat[] PROGMEM = "mm";
+
+const char stringsYearFormat[] PROGMEM = "rrrr";
+const char stringsMonthFormat[] PROGMEM = "mm";
+const char stringsDayFormat[] PROGMEM = "dd";
+
+const char stringsForLesson[] PROGMEM = "Na lekcjê";
+const char stringsForBreak[] PROGMEM = "Na przerwê";
+
+const char stringsAt[] PROGMEM = "O godz";
+const char stringsFor[] PROGMEM = "Przez";
+const char stringsMinutesShortened[] PROGMEM = "min";
+const char stringsLastSynchronization[] PROGMEM = "Ostatnia synchronizacja";
+
+const char stringsNever[] PROGMEM = "nigdy";
+
+const char stringsToday[] PROGMEM = "Dzisiaj";
+const char stringsTommorow[] PROGMEM = "Jutro";
+
+const char stringsProfileNormal[] PROGMEM = "Normalne";
+const char stringsProfileShortened[] PROGMEM = "Skrócone";
+const char stringsProfileOther[] PROGMEM = "Inne";
+const char stringsProfileNone[] PROGMEM = "Brak";
+
+const char stringsAddBell[] PROGMEM = "Dodaj dzwonek";
+const char stringsClear[] PROGMEM = "Wyczyœæ";
+const char stringsDoYouWantToClearBells[] PROGMEM = "Czy na pewno chcesz usun¹æ dzwonki?";
+
+const char stringsNewCalendar[] PROGMEM = "Nowy kalendarz";
+const char stringsDoYouWantNewCalendar[] PROGMEM = "Czy chcesz rozpocz¹æ nowy rok szkolny?";
+
+const char stringsSettingsFileName[] = "dzwonek.2lo";
+const char stringsInitializingSdCardTop[] PROGMEM = "Inicjalizacja";
+const char stringsInitializingSdCardBottom[] PROGMEM = "karty SD";
+const char stringsNoSdCardTop[] PROGMEM = "W³ó¿ kartê SD i";
+const char stringsNoSdCardBottom[] PROGMEM = "spróbuj ponownie";
+const char stringsErrorWhileReadingSdCardTop[] PROGMEM = "B³¹d podczas";
+const char stringsErrorWhileReadingSdCardBottom[] PROGMEM = "odczytu karty SD";
+const char stringsNoFilesystemTop[] PROGMEM = "Sformatuj kartê";
+const char stringsNoFilesystemBottom[] PROGMEM = "u¿ywaj¹c FAT32";
+const char stringsNoFile[] PROGMEM = "Brak pliku";
+const char stringsVerificationErrorTop[] PROGMEM = "Weryfikacja";
+const char stringsVerificationErrorBottom[] PROGMEM = "nieudana";
+const char stringsNotEnoughDataTop[] PROGMEM = "Plik zawiera za";
+const char stringsNotEnoughDataBottom[] PROGMEM = "ma³o danych";
+const char stringsSdCardLoadSuccessTop[] PROGMEM = "Wykonano";
+const char stringsSdCardLoadSuccessBottom[] PROGMEM = "pomyœlnie";
+const char stringsReadingSdCard[] PROGMEM = "Odczyt";
+const char stringsVerifyingSdCard[] PROGMEM = "Weryfik.";
+const char stringsWritingSdCard[] PROGMEM = "Zapis";
+
+const char stringsLoadSdCardSettings[] PROGMEM = "Odczytaj z karty pamiêci";
+const char stringsSaveSdCardSettings[] PROGMEM = "Zapisz na kartê pamiêci";
+const char stringsFactorySettings[] PROGMEM = "Przywróæ fabryczne";
+
+const char stringsDoYouWantLoadFromSdCard[] PROGMEM = "Czy na pewno chcesz odczytaæ ustawienia z karty SD?";
+const char stringsDoYouWantSaveToSdCard[] PROGMEM = "Czy na pewno chcesz zapisaæ ustawienia na kartê SD?";
+const char stringsDoYouWantFactorySettings[] PROGMEM = "Czy na pewno chcesz wyczyœciæ wszystkie ustawienia?";
+
+char stringsBuffer[STRINGS_BUFFER_SIZE];
+
+void stringsLoad(char* buffer, const char* progmemAddress)
+{
+	strcpy_P(buffer, progmemAddress);
+}

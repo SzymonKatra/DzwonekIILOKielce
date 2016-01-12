@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:s="clr-namespace:System;assembly=mscorlib">
-    <s:String x:Key="StringAppName">Dzwonek II LO Kielce Konfiguracja</s:String>
+    <s:String x:Key="StringAppName">Dzwonek ZSE Kielce Konfiguracja</s:String>
     <s:String x:Key="StringInnerError">Wewnętrzny błąd</s:String>
     <s:String x:Key="StringIllegalCharacters">Wprowadzono nieprawidłowe znaki</s:String>
     <s:String x:Key="StringFormatMustBeInRange">Wprowadź liczbę z zakresu od {0} do {1}</s:String>

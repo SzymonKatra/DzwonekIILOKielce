@@ -10,7 +10,7 @@ namespace KonfiguracjaDzwonekIILOKielce
 {
     public static class Global
     {
-        public static readonly string ConfigurationFileName = "dzwonek.2lo";
+        public static readonly string ConfigurationFileName = "dzwonek.zse";
 
         static Global()
         {

@@ -4,7 +4,7 @@ const char stringsInitialization[] PROGMEM = "Inicjalizacja...";
 const char stringsSettingFactorySettingsTop[] PROGMEM = "Przywracanie";
 const char stringsSettingFactorySettingsBottom[] PROGMEM = "ust. fabrycznych";
 
-const char stringsSplashText[] PROGMEM = "II LO Kielce";
+const char stringsSplashText[] PROGMEM = "ZSE Kielce";
 
 const char stringsYes[] PROGMEM = "Tak";
 const char stringsNo[] PROGMEM = "Nie";
@@ -71,7 +71,7 @@ const char stringsDoYouWantToClearBells[] PROGMEM = "Czy na pewno chcesz usun¹æ 
 const char stringsNewCalendar[] PROGMEM = "Nowy kalendarz";
 const char stringsDoYouWantNewCalendar[] PROGMEM = "Czy chcesz rozpocz¹æ nowy rok szkolny?";
 
-const char stringsSettingsFileName[] = "dzwonek.2lo";
+const char stringsSettingsFileName[] = "dzwonek.zse";
 const char stringsInitializingSdCardTop[] PROGMEM = "Inicjalizacja";
 const char stringsInitializingSdCardBottom[] PROGMEM = "karty SD";
 const char stringsNoSdCardTop[] PROGMEM = "W³ó¿ kartê SD i";
