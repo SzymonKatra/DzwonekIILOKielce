@@ -93,6 +93,20 @@ namespace KonfiguracjaDzwonekIILOKielce
             set { m_autoTimeTransition = value; RaisePropertyChanged(nameof(AutoTimeTransition)); }
         }
 
+        private int m_alarmLength;
+        public int AlarmLength
+        {
+            get { return m_alarmLength; }
+            set { m_alarmLength = value;  RaisePropertyChanged(nameof(AlarmLength)); }
+        }
+
+        private int m_alarmDiscontinuousInterval;
+        public int AlarmDiscontinuousInterval
+        {
+            get { return m_alarmDiscontinuousInterval; }
+            set { m_alarmDiscontinuousInterval = value; RaisePropertyChanged(nameof(AlarmDiscontinuousInterval)); }
+        }
+
         private ObservableCollection<ProfileViewModel> m_profiles;
         public ObservableCollection<ProfileViewModel> Profiles
         {
@@ -176,6 +190,8 @@ namespace KonfiguracjaDzwonekIILOKielce
             m_synchronizationTime = new DateTime(1, 1, 1, 22, 0, 0); // 22:00
             m_synchronizationLength = 420; // 7 hours
             m_autoTimeTransition = true;
+            m_alarmLength = 180; // 3 minutes;
+            m_alarmDiscontinuousInterval = 1;
 
             m_profiles.Clear();
             for (int i = 0; i < Device.PROFILES_COUNT; i++) m_profiles.Add(new ProfileViewModel(i));
@@ -200,6 +216,8 @@ namespace KonfiguracjaDzwonekIILOKielce
                 m_synchronizationTime = new DateTime(1, 1, 1, eeprom.Settings.Dcf77SynchronizationTime / 60, eeprom.Settings.Dcf77SynchronizationTime % 60, 0);
                 m_synchronizationLength = eeprom.Settings.Dcf77SynchronizationMaxLength;
                 m_autoTimeTransition = eeprom.Settings.AutoTimeTransition > 0 ? true : false;
+                m_alarmLength = eeprom.Settings.AlarmLength;
+                m_alarmDiscontinuousInterval = eeprom.Settings.AlarmDiscontinuousInterval;
 
                 m_profiles.Clear();
                 for (int i = 0; i < Device.PROFILES_COUNT; i++)
@@ -248,6 +266,8 @@ namespace KonfiguracjaDzwonekIILOKielce
                 eeprom.Settings.Dcf77SynchronizationTime = (ushort)(m_synchronizationTime.Hour * 60 + m_synchronizationTime.Minute);
                 eeprom.Settings.Dcf77SynchronizationMaxLength = (ushort)m_synchronizationLength;
                 eeprom.Settings.AutoTimeTransition = (byte)(m_autoTimeTransition ? 1 : 0);
+                eeprom.Settings.AlarmLength = (ushort)m_alarmLength;
+                eeprom.Settings.AlarmDiscontinuousInterval = (byte)m_alarmDiscontinuousInterval;
 
                 for (int i = 0; i < Device.PROFILES_COUNT; i++)
                 {

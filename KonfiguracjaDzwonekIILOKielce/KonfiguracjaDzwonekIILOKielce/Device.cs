@@ -10,7 +10,7 @@ namespace KonfiguracjaDzwonekIILOKielce
 {
     public static class Device
     {
-        public const ushort VALID_CHECKSUM = 0x14D4;
+        public const ushort VALID_CHECKSUM = 0x25E5;
         public const ushort PROFILE_BELLS_COUNT = 40;
 
         public const byte DAYS_COUNT = 32;
@@ -19,7 +19,7 @@ namespace KonfiguracjaDzwonekIILOKielce
         public const byte RESERVED_VALUE = 0xFF;
 
         public const int METADATA_RESERVED = 0x6;
-        public const int SETTINGS_RESERVED = 0x38;
+        public const int SETTINGS_RESERVED = 0x35;
         public const int PROFILE_RESERVED = 0x17;
         public const int MONTH_RESERVED = 0x8;
         public const int EEPROM_RESERVED = 0x18;
@@ -109,6 +109,8 @@ namespace KonfiguracjaDzwonekIILOKielce
             public byte AutoTimeTransition;
             public ushort Dcf77SynchronizationTime;
             public ushort Dcf77SynchronizationMaxLength;
+            public ushort AlarmLength;
+            public byte AlarmDiscontinuousInterval;
 
             public static Settings Create()
             {
@@ -126,6 +128,8 @@ namespace KonfiguracjaDzwonekIILOKielce
                     writer.Write(this.AutoTimeTransition);
                     writer.Write(this.Dcf77SynchronizationTime);
                     writer.Write(this.Dcf77SynchronizationMaxLength);
+                    writer.Write(this.AlarmLength);
+                    writer.Write(this.AlarmDiscontinuousInterval);
                     writer.WriteMany(RESERVED_VALUE, SETTINGS_RESERVED);
                 }
             }
@@ -140,6 +144,8 @@ namespace KonfiguracjaDzwonekIILOKielce
                     this.AutoTimeTransition = reader.ReadByte();
                     this.Dcf77SynchronizationTime = reader.ReadUInt16();
                     this.Dcf77SynchronizationMaxLength = reader.ReadUInt16();
+                    this.AlarmLength = reader.ReadUInt16();
+                    this.AlarmDiscontinuousInterval = reader.ReadByte();
                 }
 
                 stream.Seek(SETTINGS_RESERVED, SeekOrigin.Current);

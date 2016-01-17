@@ -19,6 +19,8 @@
     <s:String x:Key="StringSynchronizationHour">Godzina synchronizacji</s:String>
     <s:String x:Key="StringSynchronizationLength">Długość prób synchronizacji (min.)</s:String>
     <s:String x:Key="StringAutomaticTimeTransition">Automatyczna zmiana czasu (letni/zimowy)</s:String>
+    <s:String x:Key="StringAlarmLength">Długość alarmu</s:String>
+    <s:String x:Key="StringAlarmDiscontinuousInterval">Interwał alarmu przerywanego</s:String>
     <s:String x:Key="StringProfiles">Profile (dzwonki)</s:String>
     <s:String x:Key="StringCalendar">Kalendarz</s:String>
     <s:String x:Key="StringAddBell">Dodaj dzwonek</s:String>

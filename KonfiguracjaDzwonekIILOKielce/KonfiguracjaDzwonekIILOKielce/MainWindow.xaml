@@ -43,6 +43,7 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
             </Grid.RowDefinitions>            
             
             <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource StyleTextBlockTitle}" Text="{StaticResource StringBellLengthForLesson}"/>
@@ -61,12 +62,16 @@
                 <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="/"/>
                 <TextBlock Grid.Column="2" Style="{StaticResource StyleTextBlockTitle}" Text="{Binding SchoolYearSecond}"/>
             </Grid>
+            <CheckBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource StyleFormItem}" Content="{StaticResource StringAutomaticTimeTransition}" IsChecked="{Binding AutoTimeTransition, Mode=TwoWay}"/>
             
             <TextBlock Grid.Row="0" Grid.Column="3" Text="{StaticResource StringSynchronizationHour}" Style="{StaticResource StyleTextBlockTitle}"/>
             <t:DateTimeUpDown Grid.Row="0" Grid.Column="4" Style="{StaticResource StyleFormItem}" Format="Custom" FormatString="HH:mm" Value="{Binding SynchronizationTime, Mode=TwoWay}"/>
             <TextBlock Grid.Row="1" Grid.Column="3" Text="{StaticResource StringSynchronizationLength}" Style="{StaticResource StyleTextBlockTitle}"/>
             <t:IntegerUpDown Grid.Row="1" Grid.Column="4" Minimum="1" Maximum="1440" Style="{StaticResource StyleFormItem}" Value="{Binding SynchronizationLength, Mode=TwoWay}"/>
-            <CheckBox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" Style="{StaticResource StyleFormItem}" Content="{StaticResource StringAutomaticTimeTransition}" IsChecked="{Binding AutoTimeTransition, Mode=TwoWay}"/>
+            <TextBlock Grid.Row="2" Grid.Column="3" Text="{StaticResource StringAlarmLength}" Style="{StaticResource StyleTextBlockTitle}"/>
+            <t:IntegerUpDown Grid.Row="2" Grid.Column="4" Minimum="1" Maximum="900" Style="{StaticResource StyleFormItem}" Value="{Binding AlarmLength, Mode=TwoWay}"/>
+            <TextBlock Grid.Row="3" Grid.Column="3" Text="{StaticResource StringAlarmDiscontinuousInterval}" Style="{StaticResource StyleTextBlockTitle}"/>
+            <t:IntegerUpDown Grid.Row="3" Grid.Column="4" Minimum="1" Maximum="10" Style="{StaticResource StyleFormItem}" Value="{Binding AlarmDiscontinuousInterval, Mode=TwoWay}"/>
         </Grid>
 
         <TabControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
