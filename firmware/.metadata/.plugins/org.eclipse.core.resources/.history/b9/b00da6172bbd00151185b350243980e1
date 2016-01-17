@@ -1,0 +1,52 @@
+#include "menuEditAlarm.h"
+
+#include <stdio.h>
+#include "../common.h"
+#include "../controller.h"
+#include "../interface.h"
+#include "../strings.h"
+#include "menu.h"
+
+#define MENU_EDITALARM_LENGTH 0
+#define MENU_EDITALARM_INTERVAL 1
+#define MENU_EDITALARM_SAVE 2
+#define MENU_EDITALARM_CANCEL 3
+#define MENU_EDITALARM_COUNT 4
+
+static const settings_t* s_currentSettings;
+
+static menu_t s_menu;
+
+static uint8_t s_length;
+static uint8_t s_interval;
+
+static const char* menuEditAlarmGetString(uint8_t option, uint8_t* textWidth);
+
+void menuEditAlarm(uint8_t flags)
+{
+	if (flags & INTERFACE_MENU_INITIALIZE)
+	{
+		s_currentSettings = controllerSettingsGetPointer();
+
+		s_length = s_currentSettings->alarmLength;
+		s_interval = s_currentSettings->alarmDiscontinuousInterval;
+
+		menuCreate(&s_menu,)
+	}
+
+
+}
+
+static const char* menuEditAlarmGetString(uint8_t option, uint8_t* textWidth)
+{
+	switch (option)
+	{
+
+	case MENU_EDITALARM_LENGTH: stringsLoad(stringsBuffer, stringsAddBell); break;
+	case MENU_EDITALARM_INTERVAL: stringsLoad(stringsBuffer, stringsClear); break;
+	case MENU_EDITALARM_SAVE: stringsLoad(stringsBuffer, stringsSave); break;
+	case MENU_EDITALARM_CANCEL: stringsLoad(stringsBuffer, stringsCancel); break;
+	}
+
+	return stringsBuffer;
+}

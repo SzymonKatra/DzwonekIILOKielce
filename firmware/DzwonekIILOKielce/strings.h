@@ -42,6 +42,7 @@ extern const char stringsBellLength[] PROGMEM;
 extern const char stringsChangeProfile[] PROGMEM;
 extern const char stringsBellEnableHours[] PROGMEM;
 extern const char stringsCalendar[] PROGMEM;
+extern const char stringsAlarm[] PROGMEM;
 extern const char stringsManageSettings[] PROGMEM;
 
 extern const char stringsHourFormat[] PROGMEM;
@@ -75,6 +76,9 @@ extern const char stringsDoYouWantToClearBells[] PROGMEM;
 
 extern const char stringsNewCalendar[] PROGMEM;
 extern const char stringsDoYouWantNewCalendar[] PROGMEM;
+
+extern const char stringsAlarmLength[] PROGMEM;
+extern const char stringsAlarmDiscontinuousInterval[] PROGMEM;
 
 extern const char stringsSettingsFileName[] PROGMEM;
 extern const char stringsInitializingSdCardTop[];

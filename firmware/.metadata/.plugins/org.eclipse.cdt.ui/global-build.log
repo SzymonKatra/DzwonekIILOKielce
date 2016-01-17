@@ -1,13 +1,43 @@
-20:02:45 **** Incremental Build of configuration Release for project DzwonekIILOKielce ****
+17:07:49 **** Incremental Build of configuration Release for project DzwonekIILOKielce ****
 make all 
-Building file: ../strings.c
+Building file: ../menu/menuChangeProfile.c
 Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"strings.d" -MT"strings.d" -c -o "strings.o" "../strings.c"
-Finished building: ../strings.c
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuChangeProfile.d" -MT"menu/menuChangeProfile.d" -c -o "menu/menuChangeProfile.o" "../menu/menuChangeProfile.c"
+Finished building: ../menu/menuChangeProfile.c
+ 
+Building file: ../menu/menuEditMonth.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuEditMonth.d" -MT"menu/menuEditMonth.d" -c -o "menu/menuEditMonth.o" "../menu/menuEditMonth.c"
+Finished building: ../menu/menuEditMonth.c
+ 
+Building file: ../menu/menuEditProfile.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuEditProfile.d" -MT"menu/menuEditProfile.d" -c -o "menu/menuEditProfile.o" "../menu/menuEditProfile.c"
+Finished building: ../menu/menuEditProfile.c
+ 
+Building file: ../menu/menuManageSettings.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"menu/menuManageSettings.d" -MT"menu/menuManageSettings.d" -c -o "menu/menuManageSettings.o" "../menu/menuManageSettings.c"
+Finished building: ../menu/menuManageSettings.c
+ 
+Building file: ../controller.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"controller.d" -MT"controller.d" -c -o "controller.o" "../controller.c"
+Finished building: ../controller.c
+ 
+Building file: ../internalStorage.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"internalStorage.d" -MT"internalStorage.d" -c -o "internalStorage.o" "../internalStorage.c"
+Finished building: ../internalStorage.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=3276800UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
  
 Building target: DzwonekIILOKielce.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,DzwonekIILOKielce.map -mmcu=atmega328p -o "DzwonekIILOKielce.elf"  ./menu/menu.o ./menu/menuAutoTimeTransition.o ./menu/menuBellLength.o ./menu/menuChangeProfile.o ./menu/menuChooseProfile.o ./menu/menuDcf77LastSynchronization.o ./menu/menuDcf77Synchronization.o ./menu/menuEditMonth.o ./menu/menuEditProfile.o ./menu/menuMain.o ./menu/menuManageSettings.o ./menu/menuMonths.o ./menu/menuProfiles.o ./menu/menuSdCard.o ./menu/menuSetDate.o ./menu/menuSetTime.o ./menu/menuYesNo.o  ./device/sdcard/asmfunc.o ./device/sdcard/mmc.o ./device/sdcard/pff.o  ./device/dcf77.o ./device/ds3231.o ./device/hd44780.o ./device/i2c.o  ./clock.o ./common.o ./controller.o ./customChars.o ./interface.o ./internalStorage.o ./main.o ./strings.o   
+avr-gcc -Wl,-Map,DzwonekIILOKielce.map -mmcu=atmega328p -o "DzwonekIILOKielce.elf"  ./menu/menu.o ./menu/menuAutoTimeTransition.o ./menu/menuBellLength.o ./menu/menuChangeProfile.o ./menu/menuChooseProfile.o ./menu/menuDcf77LastSynchronization.o ./menu/menuDcf77Synchronization.o ./menu/menuEditAlarm.o ./menu/menuEditMonth.o ./menu/menuEditProfile.o ./menu/menuMain.o ./menu/menuManageSettings.o ./menu/menuMonths.o ./menu/menuProfiles.o ./menu/menuSdCard.o ./menu/menuSetDate.o ./menu/menuSetTime.o ./menu/menuYesNo.o  ./device/sdcard/asmfunc.o ./device/sdcard/mmc.o ./device/sdcard/pff.o  ./device/dcf77.o ./device/ds3231.o ./device/hd44780.o ./device/i2c.o  ./clock.o ./common.o ./controller.o ./customChars.o ./interface.o ./internalStorage.o ./main.o ./strings.o   
 Finished building target: DzwonekIILOKielce.elf
  
 Invoking: AVR Create Extended Listing
@@ -28,10 +58,10 @@ AVR Memory Usage
 ----------------
 Device: atmega328p
 
-Program:   29268 bytes (89.3% Full)
+Program:   30572 bytes (93.3% Full)
 (.text + .data + .bootloader)
 
-Data:       1539 bytes (75.1% Full)
+Data:       1564 bytes (76.4% Full)
 (.data + .bss + .noinit)
 
 

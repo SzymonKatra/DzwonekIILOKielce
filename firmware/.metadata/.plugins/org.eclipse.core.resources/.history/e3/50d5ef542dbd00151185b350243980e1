@@ -1,0 +1,8 @@
+#ifndef MENU_MENUEDITALARM_H_
+#define MENU_MENUEDITALARM_H_
+
+#include <stdint.h>
+
+void menuEditAlarm(uint8_t flags);
+
+#endif /* MENU_MENUEDITALARM_H_ */

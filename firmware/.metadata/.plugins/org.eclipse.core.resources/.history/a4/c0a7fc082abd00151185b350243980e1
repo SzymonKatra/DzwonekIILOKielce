@@ -1,0 +1,24 @@
+#include "menuEditAlarm.h"
+
+#include <stdio.h>
+#include "../common.h"
+#include "../controller.h"
+#include "../interface.h"
+#include "../strings.h"
+#include "menu.h"
+
+static const settings_t* s_currentSettings;
+
+static uint8_t s_length;
+static uint8_t s_interval;
+
+void menuEditAlarm(uint8_t flags)
+{
+	if (flags & INTERFACE_MENU_INITIALIZE)
+	{
+		s_currentSettings = controllerSettingsGetPointer();
+
+		s_length = s_currentSettings->alarmLength;
+		s_interval = s_currentSettings->alarmDiscontinuousInterval;
+	}
+}

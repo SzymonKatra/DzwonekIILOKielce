@@ -37,6 +37,7 @@ const char stringsBellLength[] PROGMEM = "D³ugoœæ dzwonka";
 const char stringsBellEnableHours[] PROGMEM = "Profile (godziny dzwonków)";
 const char stringsChangeProfile[] PROGMEM = "Zmieñ profil";
 const char stringsCalendar[] PROGMEM = "Kalendarz";
+const char stringsAlarm[] PROGMEM = "Alarm";
 const char stringsManageSettings[] PROGMEM = "Zarz¹dzaj ustawieniami";
 
 const char stringsHourFormat[] PROGMEM = "gg";
@@ -71,7 +72,10 @@ const char stringsDoYouWantToClearBells[] PROGMEM = "Czy na pewno chcesz usun¹æ 
 const char stringsNewCalendar[] PROGMEM = "Nowy kalendarz";
 const char stringsDoYouWantNewCalendar[] PROGMEM = "Czy chcesz rozpocz¹æ nowy rok szkolny?";
 
-const char stringsSettingsFileName[] = "dzwonek.zse";
+const char stringsAlarmLength[] PROGMEM = "D³ugoœæ alarmu";
+const char stringsAlarmDiscontinuousInterval[] PROGMEM = "Interwa³ alarmu przerywanego";
+
+const char stringsSettingsFileName[] PROGMEM = "dzwonek.zse";
 const char stringsInitializingSdCardTop[] PROGMEM = "Inicjalizacja";
 const char stringsInitializingSdCardBottom[] PROGMEM = "karty SD";
 const char stringsNoSdCardTop[] PROGMEM = "W³ó¿ kartê SD i";

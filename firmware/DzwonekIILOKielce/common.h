@@ -54,6 +54,8 @@ typedef struct
 	uint8_t autoTimeTransition;
 	uint16_t dcf77SynchronizationTime; // hour * 60 + minute, set to 0xFFFF to disable
 	uint16_t dcf77SynchronizationMaxLength; // in minutes
+	uint16_t alarmLength; // in seconds
+	uint8_t alarmDiscontinuousInterval; // in seconds
 } settings_t;
 typedef struct
 {

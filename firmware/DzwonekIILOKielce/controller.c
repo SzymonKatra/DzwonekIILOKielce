@@ -4,9 +4,16 @@
 #include "clock.h"
 #include "internalStorage.h"
 
+#define CONTROLLER_ALARM_NOTRUNNING 0
+#define CONTROLLER_ALARM_CONTINUOUS 1
+#define CONTROLLER_ALARM_DISCONTINUOUS 2
+
 #define bellInit() CONTROLLER_BELL_DDR |= (1 << CONTROLLER_BELL_BIT)
 #define bellOn() CONTROLLER_BELL_PORT |= (1 << CONTROLLER_BELL_BIT)
 #define bellOff() CONTROLLER_BELL_PORT &= ~(1 << CONTROLLER_BELL_BIT)
+
+#define runalarmInit() CONTROLLER_RUNALARM_DDR &= ~(1 << CONTROLLER_RUNALARM_BIT); CONTROLLER_RUNALARM_PORT |= (1 << CONTROLLER_RUNALARM_BIT)
+#define runalarmIsPressed() (!(CONTROLLER_RUNALARM_PIN & (1 << CONTROLLER_RUNALARM_BIT)))
 
 static const dateTime_t* s_currentDateTime;
 static volatile uint16_t s_previousMinutes;
@@ -24,13 +31,20 @@ static volatile uint8_t s_reloadMonth;
 static volatile uint8_t s_nextBell;
 static volatile uint16_t s_bellRemainingTicks;
 
+static volatile uint8_t s_runalarmPressTime;
+static volatile uint8_t s_alarmState;
+static volatile uint16_t s_alarmDiscontinuousTick;
+
 static void controllerForceReloadMonth();
 static void controllerForceReloadProfile();
+static void controllerHandleAlarm();
 
 void controllerInit()
 {
 	bellInit();
 	bellOff();
+
+	runalarmInit();
 
 	internalStorageSettingsRead(&s_currentSettings);
 
@@ -43,6 +57,10 @@ void controllerInit()
 	s_reloadProfile = 0;
 
 	s_bellRemainingTicks = 0;
+
+	s_runalarmPressTime = 0;
+	s_alarmState = CONTROLLER_ALARM_NOTRUNNING;
+	s_alarmDiscontinuousTick = 0;
 }
 
 void controllerTick()
@@ -52,6 +70,8 @@ void controllerTick()
 		s_bellRemainingTicks--;
 		if (s_bellRemainingTicks == 0) bellOff();
 	}
+
+	controllerHandleAlarm();
 
 	if (s_reloadMonth) return;
 
@@ -78,8 +98,11 @@ void controllerTick()
 		if (currentMinutes >= s_currentProfileData.bells[s_nextBell])
 		{
 			uint8_t bellLength = (s_currentProfileData.bellTypes & ((uint64_t)1 << s_nextBell)) ? s_currentSettings.bellLengthForBreak : s_currentSettings.bellLengthForLesson;
-			s_bellRemainingTicks = bellLength * TICKS_PER_SECOND;
-			bellOn();
+			if (s_bellRemainingTicks == 0)
+			{
+				s_bellRemainingTicks = bellLength * TICKS_PER_SECOND;
+				bellOn();
+			}
 			s_nextBell++;
 		}
 	}
@@ -177,5 +200,77 @@ static void controllerForceReloadProfile()
 			s_nextBell = (uint8_t)i;
 		}
 		else break;
+	}
+}
+
+static void controllerHandleAlarm()
+{
+	if (s_alarmState) // is alarm running?
+	{
+		if (s_alarmState == CONTROLLER_ALARM_DISCONTINUOUS)
+		{
+			s_alarmDiscontinuousTick++;
+
+			if (s_bellRemainingTicks == 0 && (s_alarmDiscontinuousTick / (uint16_t)(s_currentSettings.alarmDiscontinuousInterval * TICKS_PER_SECOND)) % 2 == 1)
+			{
+				s_bellRemainingTicks = s_currentSettings.alarmDiscontinuousInterval * TICKS_PER_SECOND;
+				bellOn();
+			}
+		}
+
+		if (s_bellRemainingTicks == 0)
+		{
+			switch (s_alarmState)
+			{
+			case CONTROLLER_ALARM_CONTINUOUS:
+				s_alarmState = CONTROLLER_ALARM_NOTRUNNING;
+				break;
+
+			case CONTROLLER_ALARM_DISCONTINUOUS:
+				if (s_alarmDiscontinuousTick >= s_currentSettings.alarmLength * TICKS_PER_SECOND)
+				{
+					s_alarmState = CONTROLLER_ALARM_NOTRUNNING;
+					s_alarmDiscontinuousTick = 0;
+				}
+				break;
+			}
+		}
+	}
+	else // alarm not running, check if user pressed alarm button to run it
+	{
+		uint8_t countingPressTime = runalarmIsPressed();
+		if (s_runalarmPressTime >= CONTROLLER_ALARM_LONGPRESS) countingPressTime = 0;
+
+		if (countingPressTime)
+		{
+			if (s_runalarmPressTime == 0)
+			{
+				s_runalarmPressTime = 1;
+				s_bellRemainingTicks = 0xFFFF;
+				bellOn();
+			}
+			else s_runalarmPressTime++;
+		}
+		else
+		{
+			if (s_runalarmPressTime > 0)
+			{
+				if (s_runalarmPressTime >= CONTROLLER_ALARM_LONGPRESS)
+				{
+					s_alarmState = CONTROLLER_ALARM_DISCONTINUOUS;
+					s_bellRemainingTicks = 0;
+					s_alarmDiscontinuousTick = 0;
+					bellOff();
+				}
+				else
+				{
+					s_alarmState = CONTROLLER_ALARM_CONTINUOUS;
+					s_bellRemainingTicks = s_currentSettings.alarmLength * TICKS_PER_SECOND;
+					bellOn();
+				}
+
+				s_runalarmPressTime = 0;
+			}
+		}
 	}
 }

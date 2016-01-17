@@ -13,6 +13,7 @@
 #include "menuBellLength.h"
 #include "menuChangeProfile.h"
 #include "menuDcf77Synchronization.h"
+#include "menuEditAlarm.h"
 #include "menuManageSettings.h"
 #include "menuMonths.h"
 #include "menuProfiles.h"
@@ -27,8 +28,9 @@
 #define MENU_MAIN_PROFILES 5
 #define MENU_MAIN_CHANGE_PROFILE 6
 #define MENU_MAIN_CALENDAR 7
-#define MENU_MAIN_MANAGE_SETTINGS 8
-#define MENU_MAIN_COUNT 9
+#define MENU_MAIN_ALARM 8
+#define MENU_MAIN_MANAGE_SETTINGS 9
+#define MENU_MAIN_COUNT 10
 
 #define MENU_MAIN_MODE_DEFAULT 0
 #define MENU_MAIN_MODE_STATUS 1
@@ -97,6 +99,7 @@ void menuMain(uint8_t flags)
 			case MENU_MAIN_CHANGE_PROFILE: interfaceMenuOpen(&menuChangeProfile); break;
 			case MENU_MAIN_PROFILES: interfaceMenuOpen(&menuProfiles); break;
 			case MENU_MAIN_CALENDAR: interfaceMenuOpen(&menuMonths); break;
+			case MENU_MAIN_ALARM: interfaceMenuOpen(&menuEditAlarm); break;
 			case MENU_MAIN_MANAGE_SETTINGS: interfaceMenuOpen(&menuManageSettings); break;
 			}
 		}
@@ -229,6 +232,7 @@ static const char* menuMainGetString(uint8_t option, uint8_t* textWidth)
 	case MENU_MAIN_CHANGE_PROFILE: stringsLoad(stringsBuffer, stringsChangeProfile); break;
 	case MENU_MAIN_PROFILES: stringsLoad(stringsBuffer, stringsBellEnableHours); break;
 	case MENU_MAIN_CALENDAR: stringsLoad(stringsBuffer, stringsCalendar); break;
+	case MENU_MAIN_ALARM: stringsLoad(stringsBuffer, stringsAlarm); break;
 	case MENU_MAIN_MANAGE_SETTINGS: stringsLoad(stringsBuffer, stringsManageSettings); break;
 	}
 
