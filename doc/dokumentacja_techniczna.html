@@ -285,7 +285,7 @@
 } metadata_t;</pre>
 			</div>
 			<ul>
-				<li><span class="field">checksum</span> - musi być równe 0x14D4 (wartość losowa), jeśli inne to urządzenie przywraca ustawienia fabryczne, a następnie ustawia tą wartość</li>
+				<li><span class="field">checksum</span> - musi być równe 0x25E5 (wartość losowa), jeśli inne to urządzenie przywraca ustawienia fabryczne, a następnie ustawia tą wartość</li>
 			</ul>
 		</p>
 
@@ -300,7 +300,9 @@
 	uint8_t autoTimeTransition;
 	uint16_t dcf77SynchronizationTime;
 	uint16_t dcf77SynchronizationMaxLength;
-	uint8_t reserved[0x38]; // = 0xFF
+	uint16_t alarmLength;
+	uint8_t alarmDiscontinuousInterval;
+	uint8_t reserved[0x35]; // = 0xFF
 } settings_t;</pre>
 			</div>
 			<ul>
@@ -310,6 +312,8 @@
 				<li><span class="field">autoTimeTransition</span> - automatyczna zmiana czasu z letniego na zimowy i na odwrót. 1 - włączone, 0 - wyłączone</li>
 				<li><span class="field">dcf77SynchronizationTime</span> - <span class="highlight">&lt;0; 1440)</span> minuta doby w której rozpocząć synchronizację. 0xFFFF oznacza wyłączenie synchronizacji</li>
 				<li><span class="field">dcf77SynchronizationMaxLength</span> - <span class="highlight">&lt;1; 1440></span> maksymalna długość prób synchronizacji w minutach</li>
+				<li><span class="field">alarmLength</span> - <span class="highlight">&lt;1; 900></span> długość alarmu w sekundach</li>
+				<li><span class="field">alarmDiscontinuousInterval</span> - <span class="highlight">&lt;1; 10></span> interwał alarmu przerywanego w sekundach</li>
 			</ul>
 		</p>
 			
