@@ -2,6 +2,9 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="de.innot.avreclipse.configuration.app.release.257066858;de.innot.avreclipse.configuration.app.release.257066858.;de.innot.avreclipse.tool.compiler.winavr.app.release.1908874875;de.innot.avreclipse.compiler.winavr.input.864549089">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="c:\avr8-gnu-toolchain\bin\../lib/gcc/avr/4.9.2/include"/>
+<includePath path="c:\avr8-gnu-toolchain\bin\../lib/gcc/avr/4.9.2/include-fixed"/>
+<includePath path="c:\avr8-gnu-toolchain\bin\../lib/gcc/avr/4.9.2/../../../../avr/include"/>
 <includePath path="c:\avr8-gnu-toolchain\bin\../lib/gcc/avr/4.8.1/include"/>
 <includePath path="c:\avr8-gnu-toolchain\bin\../lib/gcc/avr/4.8.1/include-fixed"/>
 <includePath path="c:\avr8-gnu-toolchain\bin\../lib/gcc/avr/4.8.1/../../../../avr/include"/>
@@ -9,8 +12,11 @@
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=4"/>
 <definedSymbol symbol="__GNUC_MINOR__=8"/>
+<definedSymbol symbol="__GNUC_MINOR__=9"/>
 <definedSymbol symbol="__GNUC_PATCHLEVEL__=1"/>
+<definedSymbol symbol="__GNUC_PATCHLEVEL__=2"/>
 <definedSymbol symbol="__VERSION__=&quot;4.8.1&quot;"/>
+<definedSymbol symbol="__VERSION__=&quot;4.9.2&quot;"/>
 <definedSymbol symbol="__ATOMIC_RELAXED=0"/>
 <definedSymbol symbol="__ATOMIC_SEQ_CST=5"/>
 <definedSymbol symbol="__ATOMIC_ACQUIRE=2"/>
@@ -434,6 +440,10 @@
 <definedSymbol symbol="__UINT24_MAX__=16777215UL"/>
 <definedSymbol symbol="__ELF__=1"/>
 <definedSymbol symbol="F_CPU=3276800UL"/>
+<definedSymbol symbol="__has_include(STR)=__has_include__(STR)"/>
+<definedSymbol symbol="__has_include_next(STR)=__has_include_next__(STR)"/>
+<definedSymbol symbol="__GCC_IEC_559=0"/>
+<definedSymbol symbol="__GCC_IEC_559_COMPLEX=0"/>
 </collector>
 </instance>
 </scannerInfo>
