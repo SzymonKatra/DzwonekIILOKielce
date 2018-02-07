@@ -13,7 +13,7 @@ Automatic school bell system for II Liceum Ogólnokształcące im. Jana Śniadec
 
 More information: http://szymonkatra.github.io/en/project/dzwonekiilokielce/
 
-Project is available only for illustrative purposes or to private use.
+Project is available only for illustrative purposes or for private usage.
 Commercial usage and redistribution without permission of the author is forbidden
 
 ![Photo](photos/photo_1.JPG)
