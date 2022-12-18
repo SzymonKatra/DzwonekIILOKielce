@@ -4,7 +4,7 @@ Automatic school bell system for II Liceum Ogólnokształcące im. Jana Śniadec
 
 AVR ATmega328P-PU microcontroller was used in this project. Schematic and PCB were made respectively in ExpressSCH and ExpressPCB.
 
-## Features:
+## Features
 
 - Controlling school bell system by relay 6A/250VAC or 6A/28VDC
 - Direct programming on device or by loading configuration from microSD card (included application to configure)
@@ -24,3 +24,5 @@ AVR ATmega328P-PU microcontroller was used in this project. Schematic and PCB we
 **Commercial usage and redistribution without permission of the author is forbidden**
 
 ![Photo](photos/photo_1.JPG)
+![Photo](photos/photo_3.JPG)
+![PCB design](photos/pcb.png)
