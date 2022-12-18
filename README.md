@@ -17,8 +17,8 @@ AVR ATmega328P-PU microcontroller was used in this project. Schematic and PCB we
 - Backup battery for timing in case of power failure
 - Maintenance-free, requires only setting the calendar on the begin of each school year.
 
-[Instructions of use (PL)](docs/instrukcja_uzytkowa.html)  
-[Technical documentation (PL)](docs/dokumentacja_techniczna.html)
+[Instructions of use (PL)](doc/instrukcja_uzytkowa.html)  
+[Technical documentation (PL)](doc/dokumentacja_techniczna.html)
 
 **Project is available only for illustrative purposes or private usage.**  
 **Commercial usage and redistribution without permission of the author is forbidden**
